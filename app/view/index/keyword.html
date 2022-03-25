@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$tag}首页</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" href="__STATIC__/css/keyWord.css">
+    <link rel="icon" href="__STATIC__/images/phpindex.png" type="image/x-icon">
+    <script src="__STATIC__/js/vue.js"></script>
+</head>
+<body>
+<div id="all">
+    <div class="header">
+        <p>
+            <span>大家好！我是嚴</span><br>
+            <span>当前文章：{$tag}</span><br>
+            <span>当前位置：><a href="{:url('index')}">首页</a>>{$tag}</span><br>
+        </p>
+    </div>
+    <div class="main ">
+        <p>
+            <span>根据用户的浏览度和最新的时间进行查看</span>
+        </p>
+        <div class="left">
+            {foreach $result as $vo1}
+            <div>
+                <a href={:url("article/")}{$vo1.id}>{$vo1.title}</a><br>
+                <p class="p1"><span class="content-span">
+                          {:html_entity_decode($vo1.content)}
+                        </span></p>
+                <p><span class="content-span-footer">
+                        发布于{$vo1.time|date='Y-m-d H:i:s'} |  浏览：{$vo1.browse} | Tags：{$vo1.fenclass}
+                     </span>
+                </p>
+            </div>
+            {/foreach}
+        </div>
+        <div class="right">
+            <div class="right-div1">
+                <p><span>》》》随机标签</span></p>
+                <ul class="left-ul">
+                    <li><a href="{:url('/keyword/javascript')}">javascript</a></li>
+                    <li><a href="{:url('/keyword/php')}">php</a></li>
+                    <li><a href="{:url('/keyword/mysql')}">mysql</a></li>
+                    <li><a href="{:url('/keyword/css')}">css</a></li>
+                    <li><a href="{:url('/keyword/html')}">html</a></li>
+                    <li><a href="{:url('/keyword/qita')}">其他</a></li>
+                </ul>
+            </div>
+
+
+            <div class="right-div2">
+                <p><span>》》》阅读排行榜</span></p>
+                <ul class="right-div2-ul">
+                    {foreach $read as $value}
+                    <li><a href='{:url("/article/")}{$value.id}' class="ziti">{$value.title}</a></li>
+                    {/foreach}
+                </ul>
+            </div>
+
+        </div>
+        <div class="btn">
+            <p>
+                <a href="{:url('/page/')}{$tag}/1"><button><</button></a>
+                <a href="{:url('/page/')}{$tag}/1"><button>1</button></a>
+                <a href="{:url('/page/')}{$tag}/1">  <button>2</button></a>
+                <a href="{:url('/page/')}{$tag}/1"> <button>3</button></a>
+                <a href="{:url('/page/')}{$tag}/1"><button>></button></a>
+            </p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>
+            <span>相关链接：</span>
+        </p>
+        <ul  class="footer-ul">
+            <li><a href="{:url('/keyword/javascript')}">javascript</a></li>
+            <li><a href="{:url('/keyword/php')}">php</a></li>
+            <li><a href="{:url('/keyword/mysql')}">mysql</a></li>
+            <li><a href="{:url('/keyword/css')}">css</a></li>
+            <li><a href="{:url('/keyword/html')}">html</a></li>
+            <li><a href="{:url('/keyword/qita')}">其他</a></li>
+        </ul>
+    </div>
+
+
+    <div class="Copyright">
+        <div>
+                    <span>
+                    Copyright © 2019-{:date('Y')} 嚴个人博客 All Rights ReservedPowered
+                    </span>
+        </div>
+    </div>
+
+
+
+</div>
+</body>
+</html>
