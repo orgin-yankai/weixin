@@ -1,7 +1,8 @@
 ThinkPHP 6.0
 ===============
 
-> 运行环境要求PHP7.2+，兼容PHP8.1
+> 本系统运行环境要求PHP7.4+MYSQL5.7
+
 
 [官方应用服务市场](https://market.topthink.com) | [`ThinkAPI`——官方统一API服务](https://docs.topthink.com/think-api)
 
